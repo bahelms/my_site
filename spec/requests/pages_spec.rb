@@ -6,7 +6,7 @@ describe "Pages" do
   describe "Home" do
     before { visit root_path }
 
-    it { should have_title("My Site") }
+    it { should have_title("BAHelms United") }
 
     describe "nav bar" do
       it { should have_link("Home", href: root_path) }
