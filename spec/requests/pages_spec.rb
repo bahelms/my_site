@@ -15,7 +15,7 @@ describe "Pages" do
     end
 
     describe "blog feed" do
-      it { should have_content("Recent Blog Posts") }
+      it { should have_content("Recent Posts") }
     end
   end
 end
