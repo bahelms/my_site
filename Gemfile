@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '2.3.2.2'
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'factory_girl_rails', '4.2.1'
+  gem 'faker', '1.1.2'
 end
 
 group :test do
