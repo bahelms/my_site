@@ -18,7 +18,7 @@ describe "Pages" do
 
     describe "blog feed" do
       it { should have_content("Recent Posts") }
-      it { should have_content(article1.title) }
+      it { should have_link(article1.title, href: article_path(article1)) }
       it { should have_content(article2.title) }
     end
   end
