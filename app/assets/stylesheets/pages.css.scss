@@ -2,12 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .pages {
-  h3 {
-    border-top: 1px solid #eaeaea;
-  }
+  h3 { border-top: 1px solid #eaeaea; }
 
   // Article Feed
   article {
     margin: 0 50px 20px 50px; 
+    a { 
+      color: #333;
+      &:hover { 
+        text-decoration: none;
+        color: #0088cc;
+      }
+    }
   }
 }
