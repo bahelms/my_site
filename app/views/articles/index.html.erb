@@ -1,0 +1,13 @@
+<%= provide(:title, "Blog Archives") %>
+<section id="archives">
+  <div class="row-fluid">
+    <div class="span8 offset2"><h3>Blog Archives</h3></div>
+    <div class="row-fluid">
+      <div class="span8 offset2">
+        <% if @articles.any? %>
+          <%= render @articles %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

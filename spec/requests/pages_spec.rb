@@ -17,6 +17,11 @@ describe "Pages" do
 
       describe "clicking on Archives" do
         before { click_link 'Archives' }
+        it { should have_title("Blog Archives") }
+        it { should have_content(article1.title) }
+        it { should have_content(article2.title) }
+        it { should have_content(article1.content) }
+        it { should have_content(article2.content) }
       end
     end
 
@@ -31,7 +36,9 @@ describe "Pages" do
 
       describe "clicking on an article title" do
         before { click_link article1.title }
-        it { should have_content("Hello") }
+        it { should have_title(article1.title) }
+        it { should have_content(article1.title) }
+        it { should have_content(article1.content) }
       end
     end
   end

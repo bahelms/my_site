@@ -1,3 +1,16 @@
-<div>
-  Hello
-</div>
+<%= provide(:title, @article.title) %>
+<article>
+  <div class="row-fluid">
+    <div class="span12"><h3><%= @article.title %></h3></div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12" id="published">
+      <small>Published <%= @article.created_at %></small>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span8 offset2">
+      <div id="content"><%= @article.content %></div>
+    </div>
+  </div>
+</article>
