@@ -14,3 +14,15 @@
 
 @import "bootstrap";
 @import "bootstrap-responsive";
+
+.article_feed {
+  list-style: none;
+  margin: 0 50px 20px 40px; 
+  a { 
+    color: #333;
+    &:hover { 
+      text-decoration: none;
+      color: #0088cc;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @articles = Article.all # limit: num gives a warning
+    @articles = Article.all.first 3
   end
 end
