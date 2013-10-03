@@ -2,4 +2,8 @@ This is my personal website/blog.
 
 Things to do
 ----
-* Articles
+* Add admin interface
+* Add sessions for admin
+* Add About me page
+* Add comments
+* Add tags/tag cloud

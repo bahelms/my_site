@@ -14,6 +14,7 @@ describe "Pages" do
       it { should have_link("Home", href: root_path) }
       it { should have_link("Archives", href: articles_path) }
       it { should have_link("Projects") }
+      it { should have_link("About Me") }
 
       describe "clicking on Archives" do
         before { click_link 'Archives' }
