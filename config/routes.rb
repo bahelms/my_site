@@ -1,7 +1,11 @@
 MySite::Application.routes.draw do
-  root 'pages#home'
+  root "pages#home"
   resources :articles
-  resources :sessions, only: [:new, :create, :destroy]
+  controller :sessions do
+    get "login" => :new
+    post "login" => :create
+    delete "logout" => :destroy
+  end
 
-  get "/jimbonk_admin", to: "sessions#new", as: :admin
+  get "jimbonk_admin", to: "admin#index", as: :admin
 end
