@@ -15,11 +15,19 @@ describe "Admin pagen" do
     end
 
     describe "signing in with invalid information" do
-      
+      before { click_button "Login" }
+
+      it "should redirect to root page" do
+        expect(page).to have_title("BAHelms United")
+      end
+      it { should have_content("Recent Posts") }
+      it { should have_content("You are not an administrator!") }
     end
     
     describe "signing in with valid information" do
-      
+      before do
+        fill
+      end
     end
   end
 end

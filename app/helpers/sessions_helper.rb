@@ -1,7 +1,7 @@
 module SessionsHelper
   def authenticate
-    unless Admin.find_by(session[:admin_id])
-      redirect_to root_url, notice: "What do you think you are doing, eh?"
+    unless Admin.find_by(session[:token])
+      redirect_to new_session_url
     end
   end
 end
