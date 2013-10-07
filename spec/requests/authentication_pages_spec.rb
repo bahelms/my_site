@@ -11,5 +11,6 @@ describe "Authentication" do
     it { should have_content("Username") }
     it { should have_content("Password") }
     it { should have_content("Login") }
+
   end
 end
