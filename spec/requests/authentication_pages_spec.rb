@@ -5,7 +5,7 @@ describe "Authentication" do
   subject { page }
 
   describe "signin" do
-    before { visit admin_path }
+    before { visit signin_path }
 
     it { should have_title("Admin Login") }
     it { should have_content("Username") }

@@ -26,8 +26,12 @@ describe "Admin pagen" do
     
     describe "signing in with valid information" do
       before do
-        fill
+        fill_in "Username", with: admin.username
+        fill_in "Password", with: admin.password
+        click_button "Login"
       end
+
+     it { should have_content("Welcome") }
     end
   end
 end
