@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       session[:token] = admin.token
       redirect_to admin_url
     else
-      redirect_to root_url, notice: "You are not an administrator! Shame on you."
+      flash.now[:notice] = "Invalid username/password"
+      render "new"
     end
   end
 end

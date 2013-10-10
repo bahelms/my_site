@@ -10,6 +10,11 @@
 <body class="<%= controller.controller_name %>">
   <%= render 'layouts/header' %>
   <div class="container-fluid">
+    <% flash.each do |key, value| %>
+      <div class="row-fluid">
+        <%= content_tag(:div, value, class: "alert alert-#{key} span8 offset2") %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 </body>
