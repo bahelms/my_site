@@ -5,7 +5,7 @@ describe "Authentication" do
   subject { page }
 
   describe "signin" do
-    before { visit signin_path }
+    before { visit jimbonk_signin_path }
 
     it { should have_title("Admin Login") }
     it { should have_content("Username") }
@@ -20,13 +20,18 @@ describe "Authentication" do
     end
 
     describe "with valid information" do
-      before do 
-        fill_in "Username", with: admin.username
-        fill_in "Password", with: admin.password
-        click_button "Login"
-      end
-
-      it { should have_content("Welcome") }
+      before { signin admin }
+      it { should have_content("The Office") }
+      it { should have_button("Logout") }
     end
+  end
+
+  describe "signout" do
+    before do
+      signin admin
+      click_button "Logout"
+    end
+
+    it { should have_content("Recent Posts") }
   end
 end

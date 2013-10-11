@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Admin pagen" do
+describe "Admin pages" do
   let(:admin) { create(:admin) }
   subject { page }
 
@@ -26,7 +26,7 @@ describe "Admin pagen" do
         click_button "Login"
       end
 
-     it { should have_content("Welcome") }
+     it { should have_content("The Office") }
     end
   end
 end
