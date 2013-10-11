@@ -5,28 +5,14 @@ describe "Admin pages" do
   subject { page }
 
   describe "Admin index" do
-    before { visit admin_path }
-
-    it { should have_title("Admin Login") }
-    it { should have_content("Username") }
-    it { should have_content("Password") }
-    it { should have_content("Login") }
-
-    describe "signing in with invalid information" do
-      before { click_button "Login" }
-
-      it { should have_content("Admin Login") }
-      it { should have_title("Admin Login") }
+    before do
+      visit admin_path 
+      signin admin
     end
-    
-    describe "signing in with valid information" do
-      before do
-        fill_in "Username", with: admin.username
-        fill_in "Password", with: admin.password
-        click_button "Login"
-      end
 
-     it { should have_content("The Office") }
-    end
+    it { should have_content("The Office") }
+    it { should have_link("Sign Out", href: signout_path) }
+    it { should have_link("Office", href: admin_path) }
+    it { should have_button("Write New Post") }
   end
 end

@@ -11,6 +11,7 @@ describe "Authentication" do
     it { should have_content("Username") }
     it { should have_content("Password") }
     it { should have_content("Login") }
+    it { should_not have_link("Sign Out") }
 
     describe "with invalid information" do
       before { click_button "Login" }
@@ -21,17 +22,19 @@ describe "Authentication" do
 
     describe "with valid information" do
       before { signin admin }
+
       it { should have_content("The Office") }
-      it { should have_button("Logout") }
+      it { should have_link("Office", href: admin_path) }
+      it { should have_link("Sign Out") }
+
+      describe "signing out" do
+        before { click_link "Sign Out" }
+
+        it { should have_content("Recent Posts") }
+        it { should_not have_link("Sign Out") }
+        it { should_not have_link("Office") }
+      end
     end
   end
 
-  describe "signout" do
-    before do
-      signin admin
-      click_button "Logout"
-    end
-
-    it { should have_content("Recent Posts") }
-  end
 end
