@@ -4,6 +4,7 @@ Things to do
 ----
 * Admin index:
   * Editor pops up when New Post is clicked
+    * Add CKeditor with paperclip/carrierwave
   * Search bar for article search
   * Maybe list of articles 
 * Clear login inputs when login fails

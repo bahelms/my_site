@@ -1,4 +1,5 @@
 MySite::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root "pages#home"
   resources :articles
   controller :sessions do

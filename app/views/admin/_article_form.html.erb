@@ -1,0 +1,14 @@
+<div class="row-fluid" id="article_form">
+  <div class="span8 offset2">
+    <%= form_for @article do |f| %>
+      <%= f.text_field :title, placeholder: "Title" %>
+
+      <%= f.cktext_area :content %>
+    <% end %>
+  </div>
+  <div class="row-fluid">
+    <div class="span2 offset2">
+      <%= button_tag "Post Article", class: "btn"%>
+    </div>
+  </div>
+</div>

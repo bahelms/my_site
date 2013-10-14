@@ -1,8 +1,10 @@
+<% provide(:title, "The Office") %>
 <div class="row-fluid">
   <div class="span8 offset2"><h3>The Office</h3></div>
 </div>
 <div class="row-fluid">
-  <div class="span2 offset2">
-    <%= button_tag "Write New Post", class: "btn" %>
+  <div class="span2 offset2" id="button_row">
+    <%= button_tag "Write New Article", class: "btn", id: "write_post" %>
   </div>
 </div>
+<%= render "article_form" %>
