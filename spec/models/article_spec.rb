@@ -19,4 +19,13 @@ describe Article do
       it { should_not be_valid }
     end
   end
+
+  describe "saving order" do
+    let!(:old_article) { create(:article, created_at: 1.day.ago) }
+    let!(:new_article) { create(:article, created_at: 1.hour.ago) }
+
+    it "should have the right articles in the right order" do
+      expect(Article.all.to_a).to eq [new_article, old_article]
+    end
+  end
 end

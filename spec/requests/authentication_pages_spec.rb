@@ -8,8 +8,8 @@ describe "Authentication" do
     before { visit jimbonk_signin_path }
 
     it { should have_title("Admin Login") }
-    it { should have_content("Username") }
-    it { should have_content("Password") }
+    # it { should have_content("Username") }
+    # it { should have_content("Password") }
     it { should have_content("Login") }
     it { should_not have_link("Sign Out") }
 

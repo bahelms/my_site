@@ -2,13 +2,12 @@ This is my personal website/blog.
 
 Things to do
 ----
+* jQuery toggle fails after going to another page
 * Admin index:
-  * Editor pops up when New Post is clicked
-    * Add CKeditor with paperclip/carrierwave
   * Search bar for article search
   * Maybe list of articles 
+* Only show snippet of article on home page
 * Clear login inputs when login fails
-* Add admin interface
 * Add About me page
 * Add article comments
 * Add article tags/tag cloud

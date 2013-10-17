@@ -1,6 +1,2 @@
 jQuery ->
-  $("#write_post").click ->
-    if @?
-      @.hide
-    else
-      @.show
+  $("#new_article").click -> $("#article_form").toggle()

@@ -1,0 +1,13 @@
+<div class="row-fluid">
+  <div class="span8 offset2">
+    <%= form_for @article, remote: true do |f| %>
+      <div id="article_errors"></div>
+      <%= f.text_field :title, placeholder: "Title" %>
+      <%= f.text_area :content, class: "tinymce" %>
+      <%= tinymce %>
+      <p class="post_button">
+        <%= f.submit "Post Article", class: "btn" %>
+      </p>
+    <% end %>
+  </div>
+</div>

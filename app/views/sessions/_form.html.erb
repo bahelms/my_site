@@ -1,11 +1,7 @@
 <div class="span4 offset4">
   <%= form_tag(jimbonk_signin_path) do %>
-    <%= label_tag :username, "Username" %>
-    <%= text_field_tag :username, params[:username] %>
-
-    <%= label_tag :password, "Password" %>
-    <%= password_field_tag :password, params[:password] %>
-
+    <%= text_field_tag :username, params[:username], placeholder: "Username" %>
+    <%= password_field_tag :password, params[:password], placeholder: "Password" %>
     <%= submit_tag "Login", class: "btn" %>
   <% end %>
 </div>
