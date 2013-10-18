@@ -8,8 +8,10 @@
           <% if @articles.any? %>
             <%= render @articles %>
           <% end %>
-          <%= will_paginate  %>
         </ul>
+      </div>
+      <div class="pagination pagination-centered">
+        <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
       </div>
     </div>
   </div>

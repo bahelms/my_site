@@ -11,5 +11,4 @@ Things to do
 * Add About me page
 * Add article comments
 * Add article tags/tag cloud
-* CSS pagination
 * Footer?

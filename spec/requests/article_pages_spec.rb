@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Article Pages" do
   let(:admin) { create(:admin) }
+  let(:article) { create(:article) }
   subject { page }
 
   describe "Archives" do
@@ -22,30 +23,13 @@ describe "Article Pages" do
     end
   end
 
-  describe "posting a new article" do
-    before do
-      visit admin_path
-      signin admin
-      click_button "Write New Article"
-    end
-
-    it { should have_button("Post Article") }
-
-    context "with invalid information" do
-      it "should not create an article" do
-        expect { click_button "Post Article" }.not_to change(Article, :count)
-      end
-
-      describe "after submission" do
-        before { click_button "Post Article" }
-        it { should have_content("error") }
-      end
-    end
-
-    context "with valid information" do
-      it "should create an article" do
-        expect { click_button "Post Article" }.to change(Article, :count)
-      end
-    end
+  describe "showing article" do
+    before { visit article_path(article) }
+    
+    it { should have_content(article.title) }
+    it { should have_content(article.content) }
+    it { should have_content("Published") }
+    it { should have_title(article.title) }
+    it { should_not have_content("<p>") }
   end
 end
