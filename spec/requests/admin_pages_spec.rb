@@ -19,7 +19,9 @@ describe "Admin index" do
 
   describe "clicking Write New Article button" do
     before { click_button "Write New Article" }
-    it { should have_selector("#article_form", visible: true) }
+    it "displays article form", js: true do
+      expect(subject).to have_selector("#article_form", visible: true)
+    end
   end
   
   describe "posting a new article" do
@@ -29,20 +31,24 @@ describe "Admin index" do
       click_button "Write New Article"
     end
 
-    it { should have_button("Post Article") }
-
     context "with invalid information" do
-      it "should not create an article" do
+      it "should not create an article", js: true do
         expect { click_button "Post Article" }.not_to change(Article, :count)
       end
 
-      describe "after submission" do
+      describe "after submission", js: true do
         before { click_button "Post Article" }
         it { should have_content("error") }
       end
     end
 
-    context "with valid information" do
+    context "with valid information", js: true do
+      before do
+        fill_in "Title", with: "TitleTest"
+        fill_tinymce
+        click_button "Post Article"
+      end
+
       it "should create an article" do
         expect { click_button "Post Article" }.to change(Article, :count)
       end

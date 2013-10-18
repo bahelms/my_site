@@ -2,7 +2,7 @@ This is my personal website/blog.
 
 Things to do
 ----
-* jQuery toggle fails after going to another page
+* jQuery: figure out how to call function variable
 * Admin index:
   * Search bar for article search
   * Maybe list of articles 
