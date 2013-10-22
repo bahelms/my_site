@@ -49,8 +49,9 @@ describe "Admin index" do
         click_button "Post Article"
       end
 
+      it { should have_content("Your article has been posted.") }
       it "should create an article" do
-        expect { click_button "Post Article" }.to change(Article, :count)
+        expect { click_button "Post Article" }.to change(Article, :count).by(1)
       end
     end
   end

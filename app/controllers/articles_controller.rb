@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show]
+  before_action :set_article, only: [:show, :destroy]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
@@ -19,6 +19,16 @@ class ArticlesController < ApplicationController
         format.js 
       end
     end
+  end
+
+  def destroy
+    @article.destroy
+    flash[:notice] = "#{@article.title} was just eradicated."
+    redirect_to articles_path
+  end
+
+  def edit
+    
   end
 
   private

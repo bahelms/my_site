@@ -1,7 +1,18 @@
 <%= provide(:title, @article.title) %>
 <article>
+  <% if signed_in? %>
+    <div class="row-fluid">
+      <div class="span4 offset2">
+        <%= link_to "Edit Article", edit_article_path(@article), 
+          class: "btn btn-mini" %>
+        <%= link_to "Delete Article", @article, method: :delete, 
+          data: { confirm: "Delete article permanently?" }, 
+          class: "btn btn-mini" %>
+      </div>
+    </div>
+  <% end %>
   <div class="row-fluid">
-    <div class="span12"><h3><%= @article.title %></h3></div>
+    <div class="span8 offset2"><h3><%= @article.title %></h3></div>
   </div>
   <div class="row-fluid">
     <div class="span12" id="published">

@@ -1,8 +1,10 @@
 This is my personal website/blog. 
 
-Things to do
+## Things to do
 ----
-* jQuery: figure out how to call function variable
+* Create edit page/tests
+
+### Longterm
 * Admin index:
   * Search bar for article search
   * Maybe list of articles 

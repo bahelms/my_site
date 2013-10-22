@@ -23,7 +23,7 @@ describe "Article Pages" do
     end
   end
 
-  describe "showing article" do
+  describe "show article page" do
     before { visit article_path(article) }
     
     it { should have_content(article.title) }
@@ -31,5 +31,33 @@ describe "Article Pages" do
     it { should have_content("Published") }
     it { should have_title(article.title) }
     it { should_not have_content("<p>") }
+
+    context "when logged in as admin" do
+      before do
+        signin admin
+        visit article_path(article)
+      end
+
+      it { should have_content(article.title) }
+      it { should have_content(article.content) }
+      it { should have_link("Delete Article") }
+      it { should have_link("Edit Article") }
+
+      describe "clicking Delete Article button" do
+        it "should delete the current article" do
+          expect { click_link "Delete Article" }.to change(Article, :count).by(-1)
+        end
+      end
+    end
+  end
+
+  describe "edit article page" do
+    before do
+      signin admin
+      visit article_path(article)
+      click_link "Edit Article"
+    end
+
+   it { should have_content("Edit") }
   end
 end
