@@ -3,6 +3,6 @@
       "<%= j render(partial: "form_errors", locals: { article: @article }) %>"
   );
 <% else %>
-  $("#article_form").hide();
+  $(".article_form").hide();
   $("#flash").html("<%= j @notice  %>");
 <% end %>

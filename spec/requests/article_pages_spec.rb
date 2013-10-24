@@ -58,6 +58,26 @@ describe "Article Pages" do
       click_link "Edit Article"
     end
 
-   it { should have_content("Edit") }
+    it { should have_title("Edit Article") }
+    it { should have_content(article.title) }
+    it { should have_selector(".article_form") }
+
+    describe "posting" do
+      context "with valid information", js: true do
+        let(:new_title) { "New title" }
+        let(:new_content) { "New Article Content" }
+        before do
+          fill_in "Title", with: new_title
+          fill_tinymce(new_content)
+          click_button "Post Article"
+        end
+
+        it { should have_title("New title") }
+      end
+
+      context "with invalid information" do
+        
+      end
+    end
   end
 end

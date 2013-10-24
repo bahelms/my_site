@@ -11,9 +11,15 @@ def signin(admin)
   click_button "Login"
 end
 
-def fill_tinymce
+def fill_tinymce(content)
   within_frame("article_content_ifr") do
     editor = page.find_by_id("tinymce")
-    editor.native.send_keys("Article Content Test")
+    editor.native.send_keys(content)
   end
+end
+
+def post_article
+  fill_in "Title", with: "TitleTest"
+  fill_tinymce("Article Content Test")
+  click_button "Post Article"
 end

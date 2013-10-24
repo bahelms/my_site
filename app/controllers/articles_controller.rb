@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :destroy]
+  before_action :set_article, only: [:show, :destroy, :edit, :update]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
@@ -28,7 +28,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    
+  end
+
+  def update
+    if @article.update(article_params)
+      flash[:notice] = "Your edited article has been posted."
+      redirect_to @article
+    end
   end
 
   private

@@ -2,7 +2,7 @@ This is my personal website/blog.
 
 ## Things to do
 ----
-* Create edit page/tests
+* Finish edit page tests/function
 
 ### Longterm
 * Admin index:

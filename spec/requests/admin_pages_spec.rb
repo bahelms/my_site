@@ -15,12 +15,12 @@ describe "Admin index" do
   it { should have_link("Office", href: admin_path) }
   it { should have_button("Write New Article") }
   it { should have_button("Post Article") }
-  it { should have_selector("#article_form", visible: false) }
+  it { should have_selector(".article_form", visible: false) }
 
   describe "clicking Write New Article button" do
     before { click_button "Write New Article" }
     it "displays article form", js: true do
-      expect(subject).to have_selector("#article_form", visible: true)
+      expect(subject).to have_selector(".article_form", visible: true)
     end
   end
   
@@ -43,15 +43,16 @@ describe "Admin index" do
     end
 
     context "with valid information", js: true do
-      before do
-        fill_in "Title", with: "TitleTest"
-        fill_tinymce
-        click_button "Post Article"
-      end
+      before { post_article }
 
       it { should have_content("Your article has been posted.") }
+
       it "should create an article" do
-        expect { click_button "Post Article" }.to change(Article, :count).by(1)
+        expect do 
+          visit admin_path
+          click_button "Write New Article"
+          post_article
+        end.to change(Article, :count).by(1)
       end
     end
   end
