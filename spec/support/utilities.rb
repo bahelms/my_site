@@ -14,6 +14,7 @@ end
 def fill_tinymce(content)
   within_frame("article_content_ifr") do
     editor = page.find_by_id("tinymce")
+    editor.native.clear
     editor.native.send_keys(content)
   end
 end

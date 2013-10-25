@@ -47,7 +47,7 @@ describe "Admin index" do
 
       it { should have_content("Your article has been posted.") }
 
-      it "should create an article" do
+      it "should create an article", js: true do
         expect do 
           visit admin_path
           click_button "Write New Article"

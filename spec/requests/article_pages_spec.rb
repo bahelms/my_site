@@ -52,6 +52,8 @@ describe "Article Pages" do
   end
 
   describe "edit article page" do
+    let(:new_title) { "New title" }
+    let(:new_content) { "New Article Content" }
     before do
       signin admin
       visit article_path(article)
@@ -60,23 +62,32 @@ describe "Article Pages" do
 
     it { should have_title("Edit Article") }
     it { should have_content(article.title) }
-    it { should have_selector(".article_form") }
+    it { should have_selector("#edit_form") }
 
     describe "posting" do
+      context "with invalid information", js: true do
+        before do
+          fill_tinymce("")
+          click_button "Post Article"
+        end
+        
+        it { should_not have_content(new_title) }
+        it { should_not have_content(new_content) }
+        it { should have_content(article.title) }
+        it { should have_selector("div.alert.alert-error") }
+      end
+      
       context "with valid information", js: true do
-        let(:new_title) { "New title" }
-        let(:new_content) { "New Article Content" }
         before do
           fill_in "Title", with: new_title
           fill_tinymce(new_content)
           click_button "Post Article"
         end
 
-        it { should have_title("New title") }
-      end
-
-      context "with invalid information" do
-        
+        it { should have_title(new_title) }
+        it { should have_content(new_content) }
+        it { should have_content(new_title) }
+        it { should have_selector(".alert-success") }
       end
     end
   end
