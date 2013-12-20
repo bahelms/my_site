@@ -2,7 +2,7 @@ This is my personal website/blog.
 
 ## Things to do
 ----
-* Finish edit page tests/function
+* Use EST time zone with daylight savings
 
 ### Longterm
 * Admin index:
